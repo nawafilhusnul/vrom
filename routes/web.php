@@ -18,14 +18,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('front.index');
 
 Route::prefix('admin')
     ->name('admin.')
     ->middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
-    'verified'
+    'verified',
+    'admin',
 ])->group(function () {
     // basic controller
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
