@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
+use App\Http\Controllers\Admin\BrandController as AdminBrandController;
+use App\Http\Controllers\Admin\ItemController as AdminItemController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,12 +20,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware([
+Route::prefix('admin')
+    ->name('admin.')
+    ->middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    // basic controller
+    Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
+
+    // resource controller
+    Route::resource('brand', AdminBrandController::class);
+    Route::resource('items', AdminItemController::class);
 });
