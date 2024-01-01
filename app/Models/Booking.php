@@ -26,6 +26,11 @@ class Booking extends Model
         'user_id',
     ];
 
+    protected $dates = [
+        'start_date',
+        'end_date',
+    ];
+
     public function item(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(Item::class);
