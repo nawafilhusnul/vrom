@@ -197,6 +197,10 @@ return [
         App\Providers\FortifyServiceProvider::class,
         App\Providers\JetstreamServiceProvider::class,
 
+        /*
+         * Laravel Data Table
+         */
+        Yajra\DataTables\DataTablesServiceProvider::class
     ],
 
     /*
