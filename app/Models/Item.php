@@ -22,6 +22,10 @@ class Item extends Model
         'review',
     ];
 
+    protected $casts = [
+        'photos'=> 'array',
+    ];
+
     public function brand(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(Brand::class);
