@@ -28,7 +28,7 @@ return new class extends Migration
     {
         Schema::table('types', function (Blueprint $table) {
             $table->string('slug')->change();
-            $table->timestamps();
+            $table->dropColumn('deleted_at');
         });
     }
 };

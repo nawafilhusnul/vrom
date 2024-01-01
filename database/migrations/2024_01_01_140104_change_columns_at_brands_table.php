@@ -28,6 +28,7 @@ return new class extends Migration
     {
         Schema::table('brands', function (Blueprint $table) {
             $table->string('slug')->change();
+            $table->dropColumn('deleted_at');
         });
     }
 };
