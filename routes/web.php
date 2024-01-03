@@ -32,6 +32,6 @@ Route::prefix('admin')
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
 
     // resource controller
-    Route::resource('brand', AdminBrandController::class);
+    Route::resource('brands', AdminBrandController::class);
     Route::resource('items', AdminItemController::class);
 });
